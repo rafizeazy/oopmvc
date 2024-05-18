@@ -1,7 +1,7 @@
 <?php
 
 function index() {
-    $anggota = getANggota();
+    $anggota = getAnggota();
     require "view/anggota/list.php";
 }
 
