@@ -5,7 +5,13 @@
 require_once "model/anggota_model.php";
 require_once "controller/anggota.php";
 
-$anggota = getAnggota();
+$url = parse_url($_SERVER['REQUEST_URL'], PHP_URL_PATH);
 
-// Memanggil list.php untuk menampilkan data anggota
-require "view/anggota/list.php";
+if ("/oopmvc/index.php" == $url) {
+    index();
+} else if ("/oopmvc/index.php/detail" == $url && isset ($_GET['id'])) {
+    detail($_GET['id']);
+} else {
+    header("HTTP/1.1 404 not found");
+    echo "<html><body><h1>page not found </h1></body></html>";
+}
