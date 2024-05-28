@@ -44,7 +44,7 @@ class AnggotaController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data = [
-                'id' => $id,
+                'Id' => $_POST['id'],
                 'nama' => $_POST['nama'],
                 'Tanggal_lahir' => $_POST['Tanggal_lahir'],
                 'Kota_lahir' => $_POST['Kota_lahir']
@@ -57,6 +57,8 @@ class AnggotaController
             include 'view/anggota/form.php';
         }
     }
+
+
 
     public function delete($id)
     {

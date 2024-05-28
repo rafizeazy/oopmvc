@@ -51,7 +51,7 @@ class AnggotaModel
         $query = "UPDATE " . $this->table_name . " SET nama = :nama, Tanggal_lahir = :Tanggal_lahir, Kota_lahir = :Kota_lahir WHERE Id = :id";
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(":id", $data['id']);
+        $stmt->bindParam(":id", $data['Id']);
         $stmt->bindParam(":nama", $data['nama']);
         $stmt->bindParam(":Tanggal_lahir", $data['Tanggal_lahir']);
         $stmt->bindParam(":Kota_lahir", $data['Kota_lahir']);
@@ -61,6 +61,8 @@ class AnggotaModel
         }
         return false;
     }
+
+
 
     public function delete($id)
     {
