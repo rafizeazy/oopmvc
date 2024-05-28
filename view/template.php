@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Application</title>
+    <title>Rafi Imanullah - CRUD MVC</title>
     <link href="http://localhost/oopmvc/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
