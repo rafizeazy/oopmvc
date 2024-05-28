@@ -1,18 +1,20 @@
 <?php
-// Susunan file: oopmvc/index.php
+// index.php
 
-// Memanggil model
-require_once "model/anggota_model.php";
-require_once "controller/anggota.php";
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'anggota';
+$action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
-$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+require_once 'controller/' . $controller . '.php';
 
-if ("/oopmvc/index.php" == $url) {
-    index();
-} else if ("/oopmvc/index.php/detail" == $url && isset($_GET['id'])) {
-    detail($_GET['id']);
+$controller = ucfirst($controller) . 'Controller';
+$controller = new $controller();
+
+if (method_exists($controller, $action)) {
+    if (isset($_GET['id'])) {
+        $controller->{$action}($_GET['id']);
+    } else {
+        $controller->{$action}();
+    }
 } else {
-    header("HTTP/1.1 404 Not Found");
-    echo "<html><body><h1>Page not found </h1></body></html>";
+    echo "Invalid action.";
 }
-?>
